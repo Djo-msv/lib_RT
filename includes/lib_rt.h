@@ -60,5 +60,6 @@ size_t	ft_strlen(const char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strndup(const char *s, size_t size);
 char	*ft_strcat(char *dest, char *src);
+int	ft_isascii(int c);
 
 #endif
