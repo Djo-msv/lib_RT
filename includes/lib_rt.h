@@ -14,6 +14,7 @@ void	ft_free_2d_tab(char **tab);
 
 // conversion
 int				ft_atoi(const char *nptr);
+float			ft_atof(char *str);
 int				ft_atol(const char *nptr);
 int				ft_atoll(const char *nptr);
 unsigned int	ft_atoui(const char *nptr);

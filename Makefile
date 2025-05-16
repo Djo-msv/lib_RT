@@ -65,6 +65,7 @@ BUILD_DIR		:=	.build
 SRCS_FILES:=	array/ft_alloc_2d_tab.c \
 				array/ft_free_2d_tab.c \
 				conversion/ft_atoi.c \
+				conversion/ft_atof.c \
 				conversion/ft_atol.c \
 				conversion/ft_atoll.c \
 				conversion/ft_atoui.c \
