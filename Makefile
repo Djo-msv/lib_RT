@@ -149,6 +149,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 clean:
 	@echo "$(RED)Remove objects$(NOC)"
 	@rm -f $(OBJ) $(BOBJ)
+	@rm -rf $(BUILD_DIR)
 
 fclean: clean
 	@echo "$(RED)Remove binary$(NOC)"
