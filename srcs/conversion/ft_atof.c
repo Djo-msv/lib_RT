@@ -3,7 +3,6 @@
 
 static int	handel_sign(char *str)
 {
-
 	if (*str == '-')
 		return (-1);
 	return (1);
