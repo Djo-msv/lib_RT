@@ -1,74 +1,111 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nrolland <nrolland@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 14:22:58 by star              #+#    #+#             */
+/*   Updated: 2025/05/20 18:22:20 by nrolland         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lib_rt.h"
 
-static int	c_total(char *str, char c)
+static int	is_op(char c, char *sep)
 {
-	int		i;
-	int		n_ch;
+	int	i;
 
 	i = 0;
-	n_ch = 0;
+	while (sep[i])
+	{
+		if (c == sep[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	ft_count(char *str, char *sep, int len)
+{
+	int	i;
+	int	n_str;
+	int	count;
+
+	count = 0;
+	n_str = 0;
+	i = 0;
+	while (len > i)
+	{
+		count = 0;
+		while (str[i] && is_op(str[i], sep))
+			i++;
+		while (str[i] && !is_op(str[i], sep))
+		{
+			i++;
+			count++;
+		}
+		if (count > 0)
+			n_str++;
+	}
+	return (n_str);
+}
+
+static int	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
 	while (str[i])
 	{
-		while (str[i] && str[i] == c)
-			i++;
 		if (str[i])
-			n_ch++;
-		while (str[i] && str[i] != c)
-			i++;
+			free(str[i++]);
 	}
-	return (n_ch);
-}
-
-static char	*make_mstr(char const *str, int l_m, int i)
-{
-	int		j;
-	char	*str_m;
-
-	str_m = ft_calloc((l_m + 1), sizeof(char));
-	if (str_m == NULL)
-		return (NULL);
-	j = -1;
-	while (l_m > ++j)
-	{
-		str_m[j] = str[i - l_m + j];
-	}
-	return (str_m);
-}
-
-static void	*freee(char **str, int n_ch)
-{
-	while (n_ch-- > 0)
-		free(str[n_ch]);
 	free(str);
-	return (NULL);
+	return (1);
 }
 
-char	**ft_split(char const *str, char c)
+static int	split(char *str, char *sep, int len, char **all)
 {
-	size_t		i;
-	int			l_m;
-	int			n_ch;
-	char		**all_strs;
+	int	i;
+	int	j;
+	int	len_arg;
 
-	if (!str)
-		return (NULL);
-	all_strs = ft_calloc((c_total((char *) str, c) + 1), sizeof(char *));
-	if (all_strs == NULL)
-		return (NULL);
-	i = -1;
-	n_ch = 0;
-	while (++i < ft_strlen(str))
+	i = 0;
+	j = 0;
+	len_arg = 0;
+	while (len > i)
 	{
-		l_m = 0;
-		while (str[i] && str[i] == c)
+		len_arg = 0;
+		while (str[i] && is_op(str[i], sep))
 			i++;
-		while ((str[i] != c) && str[i] && (++l_m > -42))
+		while (str[i] && !is_op(str[i], sep))
+		{
 			i++;
-		if (l_m > 0)
-			all_strs[n_ch++] = make_mstr(((char *) str), l_m, i);
-		if ((n_ch > 0) && (!all_strs[n_ch - 1]))
-			return (freee(all_strs, n_ch));
+			len_arg++;
+		}
+		if (len_arg > 0)
+		{
+			all[j] = ft_substr(str, i - len_arg, len_arg);
+			if (!all[j++])
+				return (ft_free(all));
+		}
 	}
-	return (all_strs);
+	return (0);
+}
+
+char	**ft_split(char *str, char *sep)
+{
+	char	**all;
+	int		len;
+
+	if (!str || !sep)
+		return (NULL);
+	len = ft_strlen(str);
+	all = ft_calloc(ft_count(str, sep, len) + 1, sizeof(char *));
+	if (!all)
+		return (NULL);
+	if (split(str, sep, len, all))
+		return (NULL);
+	return (all);
 }

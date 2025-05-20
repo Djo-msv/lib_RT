@@ -52,7 +52,7 @@ int	ft_isalpha(char caract);
 int ft_isstralpha(char *str);
 int	ft_isdigit(char caract);
 int	ft_strisdigit(char *str);
-char	**ft_split(char const *str, char c);
+char	**ft_split(char *str, char *sep);
 int	ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -62,5 +62,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strndup(const char *s, size_t size);
 char	*ft_strcat(char *dest, char *src);
 int	ft_isascii(int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

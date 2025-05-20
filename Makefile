@@ -101,7 +101,8 @@ SRCS_FILES:=	array/ft_alloc_2d_tab.c \
 				string/ft_strlen.c \
 				string/ft_strncmp.c \
 				string/ft_strndup.c \
-				string/ft_isascii.c
+				string/ft_isascii.c	\
+				string/ft_substr.c
 				
 
 SRCS:=			$(addprefix $(SRC_DIR)/, $(SRCS_FILES))
