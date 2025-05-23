@@ -77,6 +77,7 @@ SRCS_FILES:=	array/ft_alloc_2d_tab.c \
 				mem/ft_bzero.c \
 				mem/ft_calloc.c \
 				mem/ft_memset.c \
+				mem/ft_memcpy.c \
 				print/ft_print_address_fd.c \
 				print/ft_print_char_fd.c \
 				print/ft_printfd.c \
