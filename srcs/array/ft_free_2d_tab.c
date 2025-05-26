@@ -1,7 +1,7 @@
 
 #include "lib_rt.h"
 
-void	ft_free_2d_tab(char **tab)
+void	ft_free_2d_tab(void **tab)
 {
 	int i;
 	

@@ -10,7 +10,7 @@
 
 // array
 char	**ft_alloc_2d_tab(int x, int y);
-void	ft_free_2d_tab(char **tab);
+void	ft_free_2d_tab(void **tab);
 
 // conversion
 int				ft_atoi(const char *nptr);
