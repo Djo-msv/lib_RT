@@ -103,8 +103,16 @@ SRCS_FILES:=	array/ft_alloc_2d_tab.c \
 				string/ft_strncmp.c \
 				string/ft_strndup.c \
 				string/ft_isascii.c	\
-				string/ft_substr.c
-				
+				string/ft_substr.c	\
+				lst/ft_lstnew.c		\
+				lst/ft_lstadd_front.c	\
+				lst/ft_lstsize.c	\
+				lst/ft_lstlast.c	\
+				lst/ft_lstadd_back.c	\
+				lst/ft_lstdelone.c	\
+				lst/ft_lstclear.c	\
+				lst/ft_lstiter.c	\
+				lst/ft_lstmap.c
 
 SRCS:=			$(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 
