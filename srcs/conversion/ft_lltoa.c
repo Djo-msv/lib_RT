@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: star <star@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:20:11 by star              #+#    #+#             */
+/*   Updated: 2025/07/28 16:23:30 by star             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lib_rt.h"
 
@@ -22,7 +33,7 @@ static int	sizeofn(long long n, char *pnt, int len)
 
 char	*ft_lltoa(long long n)
 {
-	long long	num;
+	long long		num;
 	int				len;
 	int				negate;
 	char			*result;

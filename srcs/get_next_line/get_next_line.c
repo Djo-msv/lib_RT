@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: star <star@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:14:38 by star              #+#    #+#             */
+/*   Updated: 2025/07/28 16:19:03 by star             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lib_rt.h"
 
@@ -15,10 +26,10 @@ int	ft_strchr(char *str, char chr)
 	return (1);
 }
 
-void  read_file(char **reserv, int fd)
+void	read_file(char **reserv, int fd)
 {
-	int	code;
-	char  buffer[42];
+	int		code;
+	char	buffer[42];
 
 	while (ft_strchr(*reserv, '\n'))
 	{
@@ -30,12 +41,12 @@ void  read_file(char **reserv, int fd)
 	}
 }
 
-char *put_reserv_in_line(char *reserv)
+char	*put_reserv_in_line(char *reserv)
 {
-	int	i;
-	int j;
-	int	len;
-	char  *result;
+	int		i;
+	int		j;
+	int		len;
+	char	*result;
 
 	i = 0;
 	while (reserv && reserv[i] && reserv[i] != '\n')
@@ -52,13 +63,13 @@ char *put_reserv_in_line(char *reserv)
 	return (result);
 }
 
-void  remove_first_line(char **pnt_reserv)
+void	remove_first_line(char **pnt_reserv)
 {
-	int	i;
-	int	j;
-	int	len;
-	char *reserv;
-	char *result;
+	int		i;
+	int		j;
+	int		len;
+	char	*reserv;
+	char	*result;
 
 	i = 0;
 	if (!pnt_reserv)
@@ -75,13 +86,13 @@ void  remove_first_line(char **pnt_reserv)
 		result[j++] = reserv[i++];
 	result[j] = '\0';
 	free(reserv);
-	*pnt_reserv = result; 
+	*pnt_reserv = result;
 }
 
-char  *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *reserv = NULL;
-	char *line;
+	static char	*reserv = NULL;
+	char		*line;
 
 	line = NULL;
 	read_file(&reserv, fd);
@@ -96,5 +107,5 @@ char  *get_next_line(int fd)
 		free(line);
 		return (NULL);
 	}
-	return (line);	 
+	return (line);
 }

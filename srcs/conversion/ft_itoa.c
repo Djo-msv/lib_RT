@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: star <star@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:20:05 by star              #+#    #+#             */
+/*   Updated: 2025/07/28 16:23:27 by star             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lib_rt.h"
 
@@ -22,10 +33,10 @@ static int	sizeofn(unsigned int n, char *pnt, int len)
 
 char	*ft_itoa(int n)
 {
-	unsigned int	num;
 	int				len;
 	char			*result;
 	int				negate;
+	unsigned int	num;
 
 	negate = 0;
 	if (n < 0)

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: star <star@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:16:16 by star              #+#    #+#             */
+/*   Updated: 2025/07/28 16:21:39 by star             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_isalpha(char caract)
 {
@@ -7,7 +18,7 @@ int	ft_isalpha(char caract)
 		return (0);
 }
 
-int ft_isstralpha(char *str)
+int	ft_isstralpha(char *str)
 {
 	while (str && *str)
 	{
