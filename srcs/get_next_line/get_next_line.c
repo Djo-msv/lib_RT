@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: star <star@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nrolland <nrolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:14:38 by star              #+#    #+#             */
-/*   Updated: 2025/07/28 16:19:03 by star             ###   ########.fr       */
+/*   Updated: 2025/10/02 21:01:09 by nrolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ char	*get_next_line(int fd)
 	static char	*reserv = NULL;
 	char		*line;
 
+	if (fd == -1 && reserv)
+	{
+		free(reserv);
+		return (NULL);
+	}
 	line = NULL;
 	read_file(&reserv, fd);
 	if (!reserv)
